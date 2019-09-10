@@ -6,7 +6,7 @@
 /*   By: lthulare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:10:58 by lthulare          #+#    #+#             */
-/*   Updated: 2019/08/28 14:17:24 by lthulare         ###   ########.fr       */
+/*   Updated: 2019/09/10 12:19:04 by lthulare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "libft/libft.h"
 
 int		ft_newline(char **str, char **line, int fd, int checker)
-{	
-	unsigned int	i;
-	unsigned int	length;
-	char			*tmp;
-	
+{
+	unsigned int		i;
+	unsigned int		length;
+	char				*tmp;
+
 	i = 0;
 	while (str[fd][i] != '\n' && str[fd][i] != '\0')
 		i++;
@@ -51,7 +51,6 @@ int		get_next_line(const int fd, char **line)
 
 	if (fd < 0 || !line)
 		return (-1);
-	
 	while ((results = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[results] = '\0';
@@ -61,9 +60,8 @@ int		get_next_line(const int fd, char **line)
 		free(tmp_fd[fd]);
 		tmp_fd[fd] = temp;
 		if (ft_strchr(tmp_fd[fd], '\n'))
-			break;
+			break ;
 	}
-
 	if (results < 0)
 		return (-1);
 	else if (results == 0 && (tmp_fd[fd] == NULL || tmp_fd[fd][0] == '\0'))
